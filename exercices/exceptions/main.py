@@ -6,6 +6,7 @@
 class NullOrNegative(Exception):
     "Nombre négatif ou nul"
     pass
+
 def divEntier(x: int, y: int) -> int:
     if y == 0 or x < 0 or y < 0:
         raise NullOrNegative
