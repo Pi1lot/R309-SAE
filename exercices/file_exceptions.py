@@ -1,6 +1,5 @@
 file_path = "example_file.txt"
 
-
 try :
     with open(file_path, 'r') as f:
         for l in f:
