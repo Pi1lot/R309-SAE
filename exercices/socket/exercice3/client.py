@@ -2,7 +2,7 @@
 import socket
 from _thread import *
 import threading
-
+import os, sys
 class ArretError(Exception):
 	"La connexion a été fermé sur emande de l'un des deux parti"
 	pass
@@ -17,6 +17,10 @@ def threaded(c):
 		elif reply == 'bye':
 			print("Bye!")
 			break
+
+		elif reply == 'arret':
+			print("Arret!")
+			os._exit(1)
 	c.close()
 
 
@@ -34,6 +38,8 @@ def Main():
 		s.send(message.encode())
 		if message == 'bye':
 			break
+		elif message == 'arret':
+			os._exit(1)
 		else:
 			continue
 

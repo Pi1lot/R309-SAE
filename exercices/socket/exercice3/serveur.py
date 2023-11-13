@@ -4,9 +4,8 @@ import time
 # import thread module
 from _thread import *
 import threading
-
+import os, sys
 print_lock = threading.Lock()
-arretFlag = 0
 
 class ArretError(Exception):
 	"La connexion a été fermé sur emande de l'un des deux parti"
@@ -23,12 +22,9 @@ def threaded(c):
         elif data == 'arret':
             print('Arrêt du serveur')
             print_lock.release()
-            global arretFlag
-            arretFlag = 1
-
+            break
     c.close()
-
-
+    os._exit(1)
 
 def Main():
 
@@ -47,7 +43,6 @@ def Main():
         print_lock.acquire()
         print('Connection à :', addr[0], ':', addr[1])
         start_new_thread(threaded, (c,))
-        print(arretFlag)
     s.close()
 
 
