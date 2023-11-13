@@ -2,43 +2,41 @@
 import socket
 from _thread import *
 import threading
+
+class ArretError(Exception):
+	"La connexion a été fermé sur emande de l'un des deux parti"
+	pass
 def threaded(c):
 	while True:
-		# data received from client
-		data = c.recv(1024).decode()
-		print(data)
+		reply = c.recv(1024).decode()
+		if reply == 'arret':
+			print("Extinction!")
+			raise ArretError
+			break
 
-
-
-
+		elif reply == 'bye':
+			print("Bye!")
+			break
+	c.close()
 
 
 
 def Main():
-	host = '10.128.6.23'
 
+	host = '10.128.1.68'
 	port = 12345
-
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-
-	# connect to server on local computer
 	s.connect((host,port))
 
-	# message you send to server
 	start_new_thread(threaded, (s,))
 	while True:
 		message = input("Entrez un msg")
-		# message sent to server
 		s.send(message.encode())
-
-
-		# ask the client whether he wants to continue
 		if message == 'bye':
-			continue
-		else:
 			break
+		else:
+			continue
 
-	# close the connection
 	s.close()
 
 if __name__ == '__main__':

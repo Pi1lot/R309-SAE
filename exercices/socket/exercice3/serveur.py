@@ -6,52 +6,48 @@ from _thread import *
 import threading
 
 print_lock = threading.Lock()
+arretFlag = 0
 
-
-# thread function
+class ArretError(Exception):
+	"La connexion a été fermé sur emande de l'un des deux parti"
+	pass
 def threaded(c):
     while True:
-        # data received from client
         data = c.recv(1024).decode()
         print(data)
-        if not data:
-            print('Bye')
-
-            # lock released on exit
+        if data == 'bye':
+            print('Bye, déconnexion du client')
             print_lock.release()
             break
-        c.send(data.encode())
 
-    # connection closed
+        elif data == 'arret':
+            print('Arrêt du serveur')
+            print_lock.release()
+            global arretFlag
+            arretFlag = 1
+
     c.close()
 
 
+
 def Main():
+
     host = "0.0.0.0"
 
-    # reserve a port on your computer
-    # in our case it is 12345 but it
-    # can be anything
     port = 12345
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((host, port))
-    print("socket binded to port", port)
+    print("socket rattaché au port", port)
 
     # put the socket into listening mode
     s.listen(5)
-    print("socket is listening")
-
-    # a forever loop until client wants to exit
+    print("Port à l'écoute :")
     while True:
-        # establish connection with client
         c, addr = s.accept()
-
-        # lock acquired by client
         print_lock.acquire()
-        print('Connected to :', addr[0], ':', addr[1])
-
-        # Start a new thread and return its identifier
+        print('Connection à :', addr[0], ':', addr[1])
         start_new_thread(threaded, (c,))
+        print(arretFlag)
     s.close()
 
 
