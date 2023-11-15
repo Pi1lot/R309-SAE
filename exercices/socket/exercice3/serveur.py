@@ -8,7 +8,7 @@ import os, sys
 print_lock = threading.Lock()
 
 class ArretError(Exception):
-	"La connexion a été fermé sur emande de l'un des deux parti"
+	"La connexion a été fermé sur demande de l'un des deux parti"
 	pass
 def threaded(c):
     while True:
@@ -22,20 +22,20 @@ def threaded(c):
         elif data == 'arret':
             print('Arrêt du serveur')
             print_lock.release()
+            os._exit(0)
             break
     c.close()
-    os._exit(1)
+
 
 def Main():
 
     host = "0.0.0.0"
 
-    port = 12345
+    port = 12222
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind((host, port))
-    print("socket rattaché au port", port)
+    print("Socket rattaché au port", port)
 
-    # put the socket into listening mode
     s.listen(5)
     print("Port à l'écoute :")
     while True:

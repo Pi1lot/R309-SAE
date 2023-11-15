@@ -31,7 +31,7 @@ def threaded(c):
 def Main():
 
 	host = input("Entrez l'IP du serveur")
-	port = 12222
+	port = 25565
 	s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	s.connect((host,port))
 

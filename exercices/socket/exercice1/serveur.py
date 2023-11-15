@@ -1,6 +1,6 @@
 import socket
 
-port = 5000
+port = 5555
 
 server_socket = socket.socket()
 server_socket.bind(('0.0.0.0', port))

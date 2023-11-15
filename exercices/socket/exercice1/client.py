@@ -1,6 +1,6 @@
 import socket
-host = '10.128.2.14'
-port = 5000
+host = '10.128.3.22'
+port = 5555
 client_socket = socket.socket()
 client_socket.connect((host, port))
 message = input("Entrez le message")
