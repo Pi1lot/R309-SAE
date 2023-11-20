@@ -12,7 +12,7 @@ def threaded(c):
 		reply = c.recv(1024).decode()
 		if reply == 'arret':
 			print("Extinction!")
-			raise ArretError
+			#raise ArretError
 			os._exit(1)
 			break
 
