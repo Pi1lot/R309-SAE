@@ -39,7 +39,6 @@ def sendmessage(s):
         s.send(message.encode())
 
 
-
 def Main():
 
     host = "0.0.0.0"
