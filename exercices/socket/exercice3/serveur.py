@@ -13,7 +13,7 @@ class ArretError(Exception):
 def threaded(c):
     while True:
         data = c.recv(1024).decode()
-        print(data)
+        print(f"Client dit : {data}")
         if data == 'bye':
             print('Bye, déconnexion du client')
             print_lock.release()
@@ -25,6 +25,14 @@ def threaded(c):
             os._exit(0)
             break
     c.close()
+
+
+
+def sendmessage(s):
+    while True:
+        message = input("Entrez un msg")
+        s.send(message.encode())
+
 
 
 def Main():
@@ -43,6 +51,7 @@ def Main():
         print_lock.acquire()
         print('Connection à :', addr[0], ':', addr[1])
         start_new_thread(threaded, (c,))
+        start_new_thread(sendmessage, (c,))
     s.close()
 
 

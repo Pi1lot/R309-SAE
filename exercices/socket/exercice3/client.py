@@ -13,16 +13,14 @@ def threaded(c):
 		if reply == 'arret':
 			print("Extinction!")
 			raise ArretError
+			os._exit(1)
 			break
 
 		elif reply == 'bye':
 			print("Bye!")
 			Listening = False
 			break
-
-		elif reply == 'arret':
-			print("Arret!")
-			os._exit(1)
+		print(f"Serveur dit : {reply}")
 	c.close()
 
 
