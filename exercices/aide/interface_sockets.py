@@ -52,7 +52,7 @@ class MessageThread(QThread):
     def __init__(self, parent):
         super().__init__(parent)
         self.host = input("Entrez l'IP du serveur: ")
-        self.port = 12222
+        self.port = 10000
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.connect((self.host, self.port))
 
