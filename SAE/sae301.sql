@@ -57,7 +57,7 @@ CREATE TABLE `message` (
   KEY `user_name` (`user_name`),
   CONSTRAINT `message_ibfk_1` FOREIGN KEY (`channel_name`) REFERENCES `channel` (`channel_name`),
   CONSTRAINT `message_ibfk_2` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,6 +66,7 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
+INSERT INTO `message` VALUES (1,'general','admin','ceci','2023-12-31 13:27:17'),(2,'general','admin','est','2023-12-31 13:27:17'),(3,'general','admin','un','2023-12-31 13:27:19'),(4,'general','admin','test','2023-12-31 13:27:20'),(5,'general','admin','d\'historique','2023-12-31 13:27:24'),(6,'blabla','admin','idem','2023-12-31 13:27:27'),(7,'blabla','admin','ici','2023-12-31 13:27:29');
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-31 13:13:24
+-- Dump completed on 2023-12-31 13:27:49
