@@ -3,7 +3,7 @@
 
 Application de chat en temps réel basée sur les sockets avec Python
 
-Interface basée sur [Forest Theme](media/Document_Réponse.pdf](https://github.com/rdbende/Forest-ttk-theme)https://github.com/rdbende/Forest-ttk-theme)
+Interface basée sur [Forest Theme](https://github.com/rdbende/Forest-ttk-theme)
 ## Screenshots
 Client
 
