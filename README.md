@@ -10,6 +10,9 @@ Client
 
 Serveur
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+Schéma relationnel
+![App Screenshot](media/er_diagram.png)
 ## Documentation
 
 [Installation](https://linktodocumentation)
