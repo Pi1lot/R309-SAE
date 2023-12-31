@@ -351,7 +351,7 @@ def accept_clients(server):
             clients.append(client)
 
             #Création du thread pour ce client en particulier
-            threading._start_new_thread(send_receive_client_message, (client, addr))
+            threading._start_new_thread(send_receive_client_message, (client, ))
             with connection.cursor() as cursor:
                 sql = "UPDATE user SET current_ip = %s WHERE user_name = %s"
                 cursor.execute(sql, (addr[0], client_name, ))
