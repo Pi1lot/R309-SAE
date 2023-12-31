@@ -3,7 +3,6 @@
 
 Application de chat en temps réel basée sur les sockets avec Python
 
-
 ## Screenshots
 Client
 
