@@ -18,7 +18,7 @@ Schéma relationnel
 ![App Screenshot](media/er_diagram.png)
 ## Documentation
 
-* [Installation](media/Documentation Installation.pdf)
-* [Serveur](media/Documentation Serveur.pdf)
-* [Client](media/Documentation Client.pdf)
-* [Compte-rendu](media/Document Réponse.pdf)
+[Installation](media/Documentation Installation.pdf)
+[Serveur](media/Documentation Serveur.pdf)
+[Client](media/Documentation Client.pdf)
+[Compte-rendu](media/Document Réponse.pdf)
