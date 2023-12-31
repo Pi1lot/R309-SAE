@@ -81,7 +81,7 @@ channel_dict = {} #Permet de stocker le client + channel qu'il regarde actuellem
 mysql_usr = 'root'
 mysql_passwd = ''
 mysql_host = '127.0.0.1'
-mysql_database = 'sae309'
+mysql_database = 'sae301'
 
 # Start server function
 def start_server():
